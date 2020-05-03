@@ -1,0 +1,91 @@
+<template>
+  <div style="float:right;margin-right:50px;">Hrs:{hours} </div>
+<br>
+      <div style="background-color:rgb(225, 234, 234);">
+      <lightning-layout horizontal-align="spread" multiple-rows>
+          <lightning-layout-item padding="around-small" size="6">
+  TAP TRACKING    
+   <lightning-layout>
+        <lightning-layout-item size="4" padding="around-small">
+   <div  tabindex="0" onclick={sub15} >
+           <img src="https://s3.us-east-2.amazonaws.com/upload-icon/uploads/icons/png/19445089991553668384-256.png" style="width:25px;background-color:white;border-radius:40px;border:solid white" />
+  
+      </div> 
+        </lightning-layout-item >
+              <lightning-layout-item size="4" padding="around-small">
+        <center> 15min </center>
+        </lightning-layout-item>
+  
+  
+         <lightning-layout-item size="4" padding="around-small">
+        
+      <div  tabindex="0" onclick={add15}  >
+              <img src="https://how-to-play-bass.com/wp-content/uploads/2015/01/circle-icon-21.png" style="width:25px;background-color:white;border-radius:40px;border:solid white"/>
+  
+      </div>
+         </lightning-layout-item>
+       </lightning-layout> 
+       <hr  style="margin-bottom:.01px;margin-top:.01px;width:100%;" >
+        <lightning-layout>
+        <lightning-layout-item size="4" padding="around-small">
+   <div  tabindex="0"  onclick={sub1}>
+           <img src="https://s3.us-east-2.amazonaws.com/upload-icon/uploads/icons/png/19445089991553668384-256.png" style="width:25px;background-color:white;border-radius:40px;border:solid white" />
+  
+      </div> 
+        </lightning-layout-item >
+              <lightning-layout-item size="4" padding="around-small">
+        <center> 1hr </center>
+        </lightning-layout-item>
+  
+  
+         <lightning-layout-item size="4" padding="around-small">
+        
+      <div  tabindex="0" onclick={add1}>
+          <img src="https://how-to-play-bass.com/wp-content/uploads/2015/01/circle-icon-21.png" style="width:25px;background-color:white;border-radius:40px;border:solid white"/>
+     
+     </div>
+         </lightning-layout-item>
+       </lightning-layout> 
+       <hr  style="margin-bottom:.01px;margin-top:.01px;width:100%;" >
+        <lightning-layout>
+        <lightning-layout-item size="4" padding="around-small">
+   <div  tabindex="0" onclick={sub4}>
+           <img src="https://s3.us-east-2.amazonaws.com/upload-icon/uploads/icons/png/19445089991553668384-256.png" style="width:25px;background-color:white;border-radius:40px;border:solid white" />
+  
+      </div> 
+        </lightning-layout-item >
+              <lightning-layout-item size="4" padding="around-small">
+        <center> 4hr </center>
+        </lightning-layout-item>
+  
+  
+         <lightning-layout-item size="4" padding="around-small">
+        
+      <div  tabindex="0" onclick={add4}>
+          <img src="https://how-to-play-bass.com/wp-content/uploads/2015/01/circle-icon-21.png" style="width:25px;background-color:white;border-radius:40px;border:solid white"/>
+     
+     </div>
+         </lightning-layout-item>
+       </lightning-layout> 
+       
+        </lightning-layout-item>
+          <lightning-layout-item padding="around-small" size="6">
+  MANUAL TRACKING      
+  <div class="slds-m-top_small">
+    <lightning-input type="number" label="Enter some text"  variant="label-hidden"  placeholder="Enter Hours ..." onchange={handleHourChange} value={oldHours} ></lightning-input>
+  
+  </div>
+  <div class="slds-m-top_small">
+   <lightning-textarea  name="input1" label="Enter some text" variant="label-hidden" placeholder="Enter Notes ..." onchange={handleNoteChange} value={Discription} ></lightning-textarea> 
+  </div>
+  <lightning-button variant="brand" label="Save" title="create TimeEntry" onclick={CreateTimeEntry} style="float:right;margin-right:20px;"></lightning-button>
+  <template if:true={loaded}>
+    <lightning-spinner alternative-text="Loading"></lightning-spinner>
+  </template>
+    </lightning-layout-item>
+      
+      </lightning-layout>
+  </div>
+  
+  
+  </template>

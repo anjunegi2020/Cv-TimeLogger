@@ -1,0 +1,78 @@
+<template>
+    <lightning-card title="Cv TimerLogger" icon-name="custom:custom43" >
+
+      <div style=" margin: 0 auto;background:rgb(255, 255, 255);padding: 20px;width:100%">
+        
+ <lightning-layout  horizontal-align="center" >
+        <lightning-layout-item class="slds-m-top-small">
+    <div onclick={showprevious}  tabindex="0" >
+             <lightning-icon icon-name="utility:left" variant="warning" alternative-text="Previous"  size="xsmall"></lightning-icon>
+        </div> 
+           </lightning-layout-item>
+           <lightning-layout-item padding="slds-p-left_x-small" class="slds-text-align_center "> 
+<lightning-input type="date" name="input1" value={datevalue} onchange={timehandler} placeholder={dateFormat} label="Select a date"   variant="label-hidden"  ></lightning-input>
+           </lightning-layout-item>
+            <lightning-layout-item padding="" class="slds-text-align_center">  
+            <div onclick={shownext} tabindex="0" >
+             <lightning-icon icon-name="utility:right" variant="warning" alternative-text="Previous"  size="xsmall"></lightning-icon>
+        </div>
+           </lightning-layout-item>
+
+
+                       
+
+   </lightning-layout>
+    
+   <template if:true={task}>
+            <template if:true={task}>
+    
+   <div> 
+   
+                     <div style="float:left;margin-left:10px;margin-top:10px;"> ASSIGNMENT</div>       
+                   <div style="float:right;margin-right:60px;margin-top:10px;">HOURS</div>
+                       </div>
+                     <hr  style="margin-bottom:.01px;margin-top:.01px;width:100%;" >
+                    
+      
+                   <lightning-accordion class="example-accordion"
+                         allow-multiple-sections-open
+                        onsectiontoggle={handleSectionToggle}
+                        active-section-name={activeSections}>
+                <template for:each={task} for:item="ts">
+                          <div key={ts.id}  data-key={ts.id} style="float:right;margin-right:60px;margin-top:10px;" >{hourvalue}</div>
+
+                            <lightning-accordion-section  key={ts.Id} name={ts.Name}  label={ts.Name} > 
+                                <c-tracking task-id={ts.Id} taskdatevalue={datevalue} user-id={userId} oncreate={reloadList} ></c-tracking>
+
+                            </lightning-accordion-section> 
+                          
+                </template> 
+             
+                            <hr  style="margin-bottom:.01px;margin-top:.01px;width:100%;" >
+
+                        </lightning-accordion>
+	        
+                    
+                    </template>
+                    
+                    <template if:false={task.length}>
+                    <lightning-card>
+                      <div class="demo-only" style="padding:0.5rem;background:#16325c">
+                        <div class="slds-text-color_inverse"> No Record Found !</div>
+                      </div> 
+                  </lightning-card>  
+                
+                </template>
+            
+        <div style="float:right;margin-right:60px;margin-bottom:10px;">TOTAL HOURS:{totalhours}</div> 
+    
+   
+   </template>
+
+    
+ 
+</div>
+
+
+    </lightning-card>
+</template>
